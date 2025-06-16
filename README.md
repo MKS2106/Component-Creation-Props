@@ -1,54 +1,76 @@
-# React + TypeScript + Vite
+# Component Creation and Props
+This is a small reusable component library built using **React**, **Vite**, **TypeScript**, and **Tailwind CSS**. The library demonstrates reusable UI components such as Alert Boxes, User Profile Cards, and Product Displays.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## The challenge
+- Create reusable React components with TypeScript interfaces for props.
+- Implement proper prop handling and validation.
+- Use component composition effectively.
 
-Currently, two official plugins are available:
+# Your users should be able to:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Display alert messages of various types (success, error, info, warning) with a close action.
+- View a user profile card with optional fields and editing capabilities.
+- View product details (with optional description and stock status), and perform actions like “Add to Cart”.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Project Structure
+src/
+  components/
+    AlertBox/
+      AlertBox.tsx
+      AlertBox.test.tsx
+    UserProfileCard/
+      UserProfileCard.tsx
+      UserProfileCard.test.tsx
+    ProductDisplay/
+      ProductDisplay.tsx
+      ProductDisplay.test.tsx
+  types/
+    index.ts
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Component Requirements
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Alert Box Component
+- UserProfileCard Component
+- ProductDisplay Component
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 1. Alert Box Component
+- Create an AlertBox component that can display different types of alerts (success, error, warning, info) with customizable messages.
+
+### 2. UserProfileCard Component
+- Create a UserProfileCard component that displays user information with optional sections
+
+### 3. ProductDisplay Component
+Create a ProductDisplay component that shows product information with configurable display options.
+
+## Pre-Requisite 
+- Ensure you have a recent LTS (Long-Term Support) version of Node.js installed. Node.js includes npm (Node Package Manager). - You can verify your installation by opening your terminal or command prompt and running:
+    " node -v "
+    " npm -v "
+
+## How to Run
+1. Clone or download the project.
+2. Navigate (cd) to the project folder
+3. Install Dependencies run "npm install"
+4. Start the development server by running "npm run dev"
+5. Open the link in browser
+
+
+## Reflection:
+1. How did you handle optional props in your components?
+- By makign use of ternary operator in the props.
+- Props like children, showEmail, showRole, and onClose were marked as optional. Inside the component, I implemented conditional rendering using ternary operator.
+
+2. What considerations did you make when designing the component interfaces?
+- Focused on creating a single shared interface file so that it can be re-used
+
+3. How did you ensure type safety across your components?
+- Following strict TYpeScript types/interfaces for all props
+- Re-using shared types
+- Using default values and rendering when props were not passed
+
+4. What challenges did you face when implementing component composition?
+- In the beginign as the interfaces were in a shared components , destructuring the props were little tricky but with practice it got better
+- Handling layout issues when different combinations of optional props were used.
+
